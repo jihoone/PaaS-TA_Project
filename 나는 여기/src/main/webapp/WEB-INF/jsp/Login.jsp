@@ -19,7 +19,7 @@
 <%--</a>--%>
 
 <c:if test="${userId eq null}">
-    <a href="https://kauth.kakao.com/oauth/authorize?client_id=e54cdcf9334ea492db2e01c8ebacd5ee&redirect_uri=http://localhost:8080/kcallback&response_type=code">
+    <a href="https://kauth.kakao.com/oauth/authorize?client_id=a863152a6c9a88819b4482a0b970723a&redirect_uri=http://localhost:8080/kcallback&response_type=code">
             <%--            <img src="/jsp/kakao_login.png">--%>
         <img src="/img/kakao_login.png">
 <%--        <p>카카오 login</p>--%>

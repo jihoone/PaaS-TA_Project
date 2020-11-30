@@ -21,7 +21,7 @@
     <h1>로그인 성공입니다</h1>
 <input type="button" value="QR코드 선택하기" onclick="location.href='/selectQR'">
 <br><br>
-<a href="https://kauth.kakao.com/oauth/logout?client_id=e54cdcf9334ea492db2e01c8ebacd5ee&logout_redirect_uri=http://localhost:8080/logout&response_type=code">
+<a href="https://kauth.kakao.com/oauth/logout?client_id=a863152a6c9a88819b4482a0b970723a&logout_redirect_uri=http://localhost:8080/logout&response_type=code">
     <input type="button" value="로그아웃" onclick="location.href='/logout'">
 </a>
 <%--</c:if>--%>

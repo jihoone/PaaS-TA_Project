@@ -2,6 +2,7 @@ package com.example.demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -25,6 +26,13 @@ public class User {
 
     @Column
     private String social;
+
+//    User(String id, String email){
+//        this.id = id;
+//        this.email = email;
+//    }
+
+
 //    @OneToMany(mappedBy = "location")
 //    private List<Location> locations=new ArrayList<>();
 

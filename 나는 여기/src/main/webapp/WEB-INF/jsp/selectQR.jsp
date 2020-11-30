@@ -14,8 +14,9 @@
 <h1>사용하실 QR코드를 선택해주세요</h1>
 <ul>
     <li>
-        <a href="https://nid.naver.com/login/privacyQR">
-<%--            <input type="button" value="뒤로가기" onclick="location.href='selectQR'">--%>
+<%--        <input type="button" value="NaverQR" onclick="location.href='/locations/{uid}">--%>
+       <a href="https://nid.naver.com/login/privacyQR">
+            <input type="button" value="뒤로가기" onclick="location.href='selectQR'">
         NAVER QR코드
         </a>
     </li>

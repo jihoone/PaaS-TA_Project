@@ -9,7 +9,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 
+import com.example.demo.domain.User;
+import com.example.demo.repository.UserRepository;
 import com.google.gson.JsonObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.JsonElement;
@@ -17,6 +20,14 @@ import com.google.gson.JsonParser;
 
 @Service
 public class KakaoService {
+
+
+    @Autowired
+    UserRepository userRepository;
+//
+//    public KakaoService(UserRepository userRepository) {
+//        this.userRepository = userRepository;
+//    }
 
     public HashMap<String, Object> getUserInfo (String access_Token) {
 
@@ -52,9 +63,18 @@ public class KakaoService {
 
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
+            String id = element.getAsJsonObject().get("id").getAsString();
 
             userInfo.put("nickname", nickname);
             userInfo.put("email", email);
+
+            String social = "kakao";
+
+            User user = new User();
+            user.setId(id);
+            user.setEmail(email);
+            user.setSocial(social);
+            userRepository.save(user);
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -82,7 +102,7 @@ public class KakaoService {
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
             StringBuilder sb = new StringBuilder();
             sb.append("grant_type=authorization_code");
-            sb.append("&client_id=e54cdcf9334ea492db2e01c8ebacd5ee");
+            sb.append("&client_id=a863152a6c9a88819b4482a0b970723a");
             sb.append("&redirect_uri=http://localhost:8080/kcallback");
             sb.append("&code=" + authorize_code);
             bw.write(sb.toString());

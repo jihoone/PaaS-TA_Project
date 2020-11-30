@@ -1,7 +1,12 @@
 package com.example.demo.controller;
 
+import com.example.demo.domain.User;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.service.KakaoService;
 import com.example.demo.service.NaverService;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -61,9 +66,19 @@ public class LoginController {
     }
 
     @GetMapping("ncallback")
-    public String callback()
+    public String callback() throws ParseException
     {
        // String token="AAAAODoME_yp6-jsIAPBpRFZeWlUefs1Zt8zE1TlQwHtXx-0PfXKXAex14YzYw3jQp-qyM0iuVMuwf-z6WIYy0OzGlk";
+
+        String token="AAAAOyO5Bqu8zoQAX3OiZZ9YR7UxgWWXgA2J7YbQpjKOHr8gofEsbEg3IvxhqMaQREAQ5f_USrDzm8ksAuPifjQNSns";
+        String profile=naverService.getProfile(token);
+        JSONParser parser=new JSONParser();
+        Object obj = parser.parse( profile  );
+        JSONObject jsonObj = (JSONObject) obj;
+
+        String code = (String) jsonObj.get("response");
+        System.out.println(profile);
+        System.out.println("response"+code);
 
         return "navercallback";
     }
