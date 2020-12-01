@@ -24,5 +24,10 @@ public interface UserRepository extends JpaRepository<User,String>{
     @Query(value = "update User SET phone_number=?1 where id=?2")
     public void updatePhoneNumber(String phoneNumber, String uId);
 
+    @Modifying
+    @Transactional
+    @Query(value = "SELECT id FROM User where id=?1")
+    public void idRead(String uId);
+
 }
 
