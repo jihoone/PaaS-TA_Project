@@ -20,7 +20,7 @@ public class LocationController {
     private LocationService locationService;
 
     // 위치 추가
-    @PostMapping(value = "/locations/{uid}")
+    @PostMapping(value = "/locations")
     public void StoreLocation(@PathVariable String uid,@RequestBody HashMap<String,String> map)
     {
         locationService.setLocation(uid,map);

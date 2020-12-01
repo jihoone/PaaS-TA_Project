@@ -41,13 +41,14 @@ public class LocationService {
         double latitude=Double.parseDouble(map.get("latitude"));
         double longitude=Double.parseDouble(map.get("longitude"));
 
-        Location location=new Location();
-//        location.setUser(userRepository.getOne(uid));
-        location.setUser(userRepository.getOne(uid));
+        System.out.println("dkdk");
+
+        Location location = new Location();
+
+        location.setCreated_at(new Timestamp(new Date().getTime()));
         location.setLatitude(latitude);
         location.setLongitude(longitude);
-        location.setCreated_at(new Timestamp(new Date().getTime()));
-
+        location.setUser(userRepository.getOne(uid));
         locationRepository.save(location);
     }
 

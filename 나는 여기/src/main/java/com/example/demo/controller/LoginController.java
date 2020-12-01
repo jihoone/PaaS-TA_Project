@@ -13,12 +13,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 
 @Controller
 //@RequestMapping("/")
-public class LoginController {
+public class LoginController  {
+
+    private HttpServletResponse httpServletResponse;
 
     @Autowired
     private NaverService naverService;
@@ -44,7 +47,10 @@ public class LoginController {
         if (userInfo.get("nickname") != null) {
             session.setAttribute("userId", userInfo.get("nickname"));
             session.setAttribute("access_Token", access_Token);
+            session.setAttribute("id",userInfo.get("id"));
         }
+
+
 
         return "kakaocallback";
     }

@@ -19,5 +19,10 @@ public interface UserRepository extends JpaRepository<User,String>{
 
     public User getUserByEmail(String email);
 
+    @Modifying
+    @Transactional
+    @Query(value = "update User SET phone_number=?1 where id=?2")
+    public void updatePhoneNumber(String phoneNumber, String uId);
+
 }
 

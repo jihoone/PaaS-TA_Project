@@ -21,8 +21,16 @@
     <h1>로그인 성공입니다</h1>
 <input type="button" value="QR코드 선택하기" onclick="location.href='/selectQR'">
 <br><br>
-<a href="https://kauth.kakao.com/oauth/logout?client_id=a863152a6c9a88819b4482a0b970723a&logout_redirect_uri=http://localhost:8080/logout&response_type=code">
-    <input type="button" value="로그아웃" onclick="location.href='/logout'">
+
+<h2>회원 정보입력</h2>
+
+<p>
+    <a href="/user/createForm">감염경로의 알람을 받으려면 입력해주세요</a>
+</p>
+
+<br><br>
+<a href="https://kauth.kakao.com/oauth/logout?client_id=a863152a6c9a88819b4482a0b970723a&logout_redirect_uri=http://localhost:8080&response_type=code">
+    <input type="button" value="로그아웃" onclick="location.href='/Login'">
 </a>
 <%--</c:if>--%>
 </body>

@@ -1,7 +1,9 @@
 package com.example.demo.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -10,9 +12,12 @@ import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table
+@ToString(exclude = {"user"})
 public class Location {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable=false)
@@ -32,7 +37,6 @@ public class Location {
 
     @Column
     private Timestamp created_at;
-
 
 
 }

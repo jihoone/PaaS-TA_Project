@@ -67,6 +67,7 @@ public class KakaoService {
 
             userInfo.put("nickname", nickname);
             userInfo.put("email", email);
+            userInfo.put("id", id);
 
             String social = "kakao";
 
